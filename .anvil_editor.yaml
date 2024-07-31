@@ -1,9 +1,12 @@
 unique_ids:
   forms:
     Form1: EOVTLYTBWB32Z6Z3FYLVVETSODIFGWOR
+    Form1.ItemTemplate1: '1722439736954241696022374.3665'
   modules: {}
   server_modules: {}
   assets:
-    theme.css: 6HXM7EAV7KMOGDO6M2ES5JCBMOOPAZIX
+    logo-no-background.png: '1722439398686900590742650.0159'
     standard-page.html: PH6E2XR5TKXIVTQ3KH5CQJJWOT7IXXA5
+    theme.css: 6HXM7EAV7KMOGDO6M2ES5JCBMOOPAZIX
+    vista-dynamic-favicon-color.png: '1722439686679112248343808.35391'
   scripts: {}

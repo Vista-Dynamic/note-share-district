@@ -1,3 +1,14 @@
-is_package: true
+components:
+- components:
+  - name: link_1
+    properties: {}
+    type: Link
+  - name: image_1
+    properties: {}
+    type: Image
+  layout_properties: {grid_position: 'FRWOUH,DFESNL'}
+  name: linear_panel_1
+  properties: {}
+  type: LinearPanel
 container: {type: ColumnPanel}
-components: []
+is_package: true

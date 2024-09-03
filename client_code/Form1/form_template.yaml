@@ -1,22 +1,44 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html', visible: true}
 components:
-- type: ColumnPanel
-  properties: {col_widths: '{}'}
-  name: column_panel_1
-  layout_properties: {slot: default}
-  components:
-  - name: text_area_1
+- components:
+  - components:
+    - layout_properties: {grid_position: 'YRODTQ,YBPWZJ'}
+      name: Name
+      properties: {bold: true, font_size: 20, text: Info-Share District}
+      type: Label
+    layout_properties: {grid_position: 'LUEFYT,XLCGLR'}
+    name: column_panel_3
     properties: {}
-    type: TextArea
-    layout_properties: {grid_position: 'KXKQKW,YLESEK'}
-  - name: repeating_panel_1
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'CTZGCY,SYHWXU'}
+    name: repeating_panel_1
     properties: {item_template: Form1.ItemTemplate1}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'BBIWSF,QQOMFS'}
-- name: image_1
+  layout_properties: {slot: default}
+  name: column_panel_1
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+- layout_properties: {slot: logo}
+  name: image_1
   properties: {height: 45, source: _/theme/vista-dynamic-favicon-color.png}
   type: Image
-  layout_properties: {slot: logo}
+- components:
+  - layout_properties: {grid_position: 'LLSXDT,DOGPYK'}
+    name: schoolChoice
+    properties: {}
+    type: DropDown
+  - layout_properties: {grid_position: 'YOSKAU,SYNZCC'}
+    name: button_1
+    properties: {text: button_1}
+    type: Button
+  - layout_properties: {grid_position: 'UYBWSM,PVBYZL'}
+    name: button_2
+    properties: {text: button_2}
+    type: Button
+  layout_properties: {slot: left-nav}
+  name: column_panel_2
+  properties: {}
+  type: ColumnPanel
+container:
+  properties: {html: '@theme:standard-page.html', visible: true}
+  type: HtmlTemplate
+is_package: true

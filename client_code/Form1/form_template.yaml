@@ -29,11 +29,11 @@ components:
     type: DropDown
   - layout_properties: {grid_position: 'YOSKAU,SYNZCC'}
     name: button_1
-    properties: {text: button_1}
+    properties: {text: New post}
     type: Button
-  - layout_properties: {grid_position: 'UYBWSM,PVBYZL'}
+  - layout_properties: {grid_position: 'VABHQE,VHUUJC'}
     name: button_2
-    properties: {text: button_2}
+    properties: {text: enter answers}
     type: Button
   layout_properties: {slot: left-nav}
   name: column_panel_2

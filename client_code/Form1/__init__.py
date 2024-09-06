@@ -4,6 +4,7 @@ from anvil import *
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import time
 
 
 class Form1(Form1Template):
@@ -18,5 +19,8 @@ class Form1(Form1Template):
       {"name": "Name", "image": "ImageID"},
       {"name": "Name2", "image": "ImageID2"}
     )
+    time.sleep(5)
+    print(f"self.item = {self.item}")
+    alert((f"self.item = {self.item}"))
 
 

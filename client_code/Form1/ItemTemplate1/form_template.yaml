@@ -24,10 +24,10 @@ components:
       type: FlowPanel
     layout_properties: {}
     name: card_1
-    properties: {background: 'theme:Primary Overlay 1', border: 'border: solid;', role: card}
+    properties: {background: 'theme:Primary Overlay 1', border: '', role: card}
     type: ColumnPanel
   data_bindings:
-  - {code: 'border: solid white;', property: border, writeback: false}
+  - {code: '', property: border, writeback: false}
   layout_properties: {full_width_row: false, grid_position: 'FRWOUH,DFESNL'}
   name: linear_panel_1
   properties: {border: 'border: solid;'}

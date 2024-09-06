@@ -10,8 +10,9 @@ components:
     properties: {}
     type: ColumnPanel
   - data_bindings: []
+    event_bindings: {show: repeating_panel_show}
     layout_properties: {full_width_row: false, grid_position: 'CTZGCY,SYHWXU'}
-    name: repeating_panel_1
+    name: repeating_panel
     properties: {background: '', border: '', foreground: '', item_template: Form1.ItemTemplate1, spacing_above: small, visible: true}
     type: RepeatingPanel
   layout_properties: {slot: default}

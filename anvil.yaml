@@ -1,7 +1,25 @@
 allow_embedding: false
-name: Rally App 1
+db_schema:
+  uploadedmedia:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: Post Photos
+      type: media
+    - admin_ui: {order: -1, width: 200}
+      name: PostID
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: Post Text
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: UserID
+      type: string
+    server: full
+    title: UploadedMedia
+name: Info Share District
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
-package_name: Rally_App_1
+package_name: Info_Share_District
 runtime_options:
   client_version: '3'
   server_spec: {base: python310-standard}

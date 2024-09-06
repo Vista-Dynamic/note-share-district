@@ -1,6 +1,9 @@
 import anvil.server
 from ._anvil_designer import Form1Template
 from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 
 
 class Form1(Form1Template):
@@ -9,3 +12,11 @@ class Form1(Form1Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def repeating_panel_show(self, **event_args):
+    self.repeating_panel.items = (
+      {"name": "Name", "image": "ImageID"},
+      {"name": "Name2", "image": "ImageID2"}
+    )
+
+

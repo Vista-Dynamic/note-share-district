@@ -1,27 +1,36 @@
 components:
 - components:
-  - layout_properties: {}
-    name: link_1
-    properties: {text: '---------'}
-    type: Link
-  - name: image_1
-    properties: {}
-    type: Image
   - components:
-    - layout_properties: {}
-      name: Upvote
-      properties: {text: ↑}
-      type: Button
-    - layout_properties: {}
-      name: Downvote
-      properties: {text: ↓}
-      type: Button
-    name: flow_panel_1
-    properties: {}
-    type: FlowPanel
+    - layout_properties: {grid_position: 'TCNZXZ,GANHWF'}
+      name: link_1
+      properties: {text: '---------'}
+      type: Link
+    - data_bindings:
+      - {code: 'self.item[''border: solid;'']', property: border, writeback: false}
+      layout_properties: {grid_position: 'UYLXJX,TFFICI'}
+      name: image_1
+      properties: {border: 'border: solid;'}
+      type: Image
+    - components:
+      - name: Upvote
+        properties: {text: ↑}
+        type: Button
+      - name: Downvote
+        properties: {text: ↓}
+        type: Button
+      layout_properties: {grid_position: 'BBYMOB,RRATYS'}
+      name: flow_panel_1
+      properties: {}
+      type: FlowPanel
+    layout_properties: {}
+    name: card_1
+    properties: {background: 'theme:Primary Overlay 1', border: 'border: solid;', role: card}
+    type: ColumnPanel
+  data_bindings:
+  - {code: 'border: solid white;', property: border, writeback: false}
   layout_properties: {full_width_row: false, grid_position: 'FRWOUH,DFESNL'}
   name: linear_panel_1
-  properties: {}
+  properties: {border: 'border: solid;'}
   type: LinearPanel
 container:
   properties: {col_spacing: large}

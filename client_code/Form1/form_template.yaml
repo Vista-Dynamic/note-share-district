@@ -28,7 +28,13 @@ components:
     name: schoolChoice
     properties: {}
     type: DropDown
-  - layout_properties: {grid_position: 'YOSKAU,SYNZCC'}
+  - event_bindings: {click: button_3_click}
+    layout_properties: {grid_position: 'MNLRLG,LTJMYL'}
+    name: LogIn
+    properties: {text: Log in}
+    type: Button
+  - event_bindings: {click: button_1_click}
+    layout_properties: {grid_position: 'YOSKAU,SYNZCC'}
     name: button_1
     properties: {text: New post}
     type: Button

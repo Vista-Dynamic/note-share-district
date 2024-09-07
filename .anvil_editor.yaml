@@ -8,6 +8,8 @@ unique_ids:
     Form1: EOVTLYTBWB32Z6Z3FYLVVETSODIFGWOR
     Form1.ItemTemplate1: '1725393122679729596270671.8944'
     Form1.ItemTemplate2: '1725495320174161435321562.26215'
+    LogInPage: '1725741382785711632688763.83'
+    SignUpPage: '1725741360786801242959728.323'
   modules: {}
   scripts: {}
   server_modules: {}

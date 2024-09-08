@@ -13,3 +13,17 @@ class ItemTemplate1(ItemTemplate1Template):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def link_1_click(self, **event_args):
+    title = self.link_1.text
+    content = self.content.content
+    image = self.image_1.source
+    comments = {}
+    open_form('PostForm',parameters = {
+      "title": title,
+      "content": content,
+      "media": image,
+      "upvotes": 0,
+      "comments": comments})
+    
+    

@@ -24,3 +24,4 @@ def addPost(postDict):
 @anvil.server.callable
 def getPosts():
   return app_tables.uploads.search(tables.order_by("created",ascending=False))
+  

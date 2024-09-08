@@ -18,10 +18,12 @@ class Form1(Form1Template):
     self.users = [
       (user['email'], user) for user in app_tables.users.search()
     ]
-    print(user['email'])
+
+    if anvil.users.get_user():
+      self.LogIn.visible = False
+    #print(user['email'])
     self.refreshPosts() #May Cause Issues
-    uuid = anvil.server.call('getUUID',user['email'])
-    print(uuid)
+
 
     # Any code you write here will run before the form opens.
 
@@ -48,13 +50,17 @@ class Form1(Form1Template):
     self.users = [
       (user['email'], user) for user in app_tables.users.search()
     ]
-    uuid = anvil.server.call('getUUID',user['email'])
-    print(uuid)
-    if postCreate and anvil.users.get_user():
-      print(newPost)
+    if anvil.users.get_user():
+      uuid = anvil.server.call('getUUID',user['email'])
       print(uuid)
-      anvil.server.call('addPost',newPost,uuid)
-      self.refreshPosts()
+    if postCreate:
+      if anvil.users.get_user():
+        print(newPost)
+        print(uuid)
+        anvil.server.call('addPost',newPost,uuid)
+        self.refreshPosts()
+      else:
+        alert("Please login before posting!")
   def button_3_click(self, **event_args):
     user = anvil.users.login_with_form()
     if user:
@@ -63,4 +69,3 @@ class Form1(Form1Template):
   def refreshPosts(self):
     self.repeating_panel.items = anvil.server.call('getPosts')
     
-

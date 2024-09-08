@@ -24,6 +24,9 @@ db_schema:
     - admin_ui: {order: 3, width: 200}
       name: created
       type: datetime
+    - admin_ui: {order: 4, width: 200}
+      name: School
+      type: string
     server: full
     title: UploadMedia
   users:

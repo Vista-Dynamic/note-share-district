@@ -33,9 +33,17 @@ components:
       name: flow_panel_1
       properties: {}
       type: FlowPanel
+    - layout_properties: {grid_position: 'TGTLFH,JKCYKU'}
+      name: comment
+      properties: {}
+      type: TextArea
+    - layout_properties: {grid_position: 'TGTLFH,CEFCBK'}
+      name: button_1
+      properties: {font_size: null, icon_align: right_edge, text: Comment}
+      type: Button
     layout_properties: {}
     name: card_1
-    properties: {background: 'theme:Primary Overlay 1', border: '', role: card}
+    properties: {background: 'theme:Primary Overlay 1', border: '', col_widths: '{"JKCYKU":50,"CEFCBK":10}', role: card}
     type: ColumnPanel
   data_bindings: []
   layout_properties: {full_width_row: false, grid_position: 'FRWOUH,DFESNL'}

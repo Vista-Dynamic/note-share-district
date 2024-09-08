@@ -18,16 +18,17 @@ class Form1(Form1Template):
       (user['email'], user) for user in app_tables.users.search()
     ]
     print(self.users)
+    self.refreshPosts() #May Cause Issues
 
     # Any code you write here will run before the form opens.
 
-  def repeating_panel_show(self, **event_args):
+  """def repeating_panel_show(self, **event_args):
     self.repeating_panel.items = (
       {"name": "Name", "image": "ImageID"},
       {"name": "Name2", "image": "ImageID2"}
     )
     time.sleep(5)
-    print(f"self.item = {self.item}")
+    print(f"self.item = {self.item}")"""
     #alert((f"self.item = {self.item}"))
 
 
@@ -35,17 +36,21 @@ class Form1(Form1Template):
     #open_form('CreatePost')
     newPost = {}
     postCreate = alert(
-      content =CreatePost(),
+      content = CreatePost(item=newPost),
       title="Create Post",
       large=True,
       buttons=[("Create Post", True), ("Cancel", False)]
     )
     if postCreate:
       print(newPost)
+      anvil.server.call('addPost',newPost)
+      self.refreshPosts()
   def button_3_click(self, **event_args):
     user = anvil.users.login_with_form()
     if user:
       print(user)
       self.LogIn.visible = False
-
+  def refreshPosts(self):
+    self.repeating_panel.items = anvil.server.call('getPosts')
+    
 

@@ -13,3 +13,6 @@ class CreatePost(CreatePostTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def Image_change(self, file, **event_args):
+    self.item["media"] = file

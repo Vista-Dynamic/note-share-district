@@ -1,4 +1,5 @@
 import anvil.server
+from ..CreatePost import CreatePost
 from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.users
@@ -13,6 +14,11 @@ class Form1(Form1Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    self.users = [
+      (user['email'], user) for user in app_tables.users.search()
+    ]
+    print(self.users)
+
     # Any code you write here will run before the form opens.
 
   def repeating_panel_show(self, **event_args):
@@ -26,8 +32,16 @@ class Form1(Form1Template):
 
 
   def button_1_click(self, **event_args):
-    open_form('CreatePost')
-
+    #open_form('CreatePost')
+    newPost = {}
+    postCreate = alert(
+      content =CreatePost(),
+      title="Create Post",
+      large=True,
+      buttons=[("Create Post", True), ("Cancel", False)]
+    )
+    if postCreate:
+      print(newPost)
   def button_3_click(self, **event_args):
     user = anvil.users.login_with_form()
     if user:

@@ -6,24 +6,30 @@ components:
     type: Label
   - layout_properties: {grid_position: 'PFLHFP,YBMAFC'}
     name: button_2
-    properties: {align: right, bold: true, icon_align: left, spacing_above: none, spacing_below: none, text: X}
+    properties: {align: right, bold: true, icon_align: left, spacing_above: none, spacing_below: none, text: X, visible: false}
     type: Button
-  - layout_properties: {grid_position: 'HRJYOZ,ISAPCL'}
+  - data_bindings:
+    - {code: 'self.item[''title'']', property: text, writeback: true}
+    layout_properties: {grid_position: 'HRJYOZ,ISAPCL'}
     name: Title
     properties: {}
     type: TextBox
-  - layout_properties: {grid_position: 'CUYTDK,BCTNGM'}
+  - data_bindings:
+    - {code: 'self.item[''content'']', property: text, writeback: true}
+    layout_properties: {grid_position: 'CUYTDK,BCTNGM'}
     name: Body
     properties: {}
     type: TextArea
   - components:
-    - layout_properties: {}
+    - data_bindings: []
+      event_bindings: {change: Image_change}
+      layout_properties: {}
       name: Image
       properties: {text: Upload Image}
       type: FileLoader
     - layout_properties: {}
       name: Answers
-      properties: {text: Add answers}
+      properties: {icon: 'fa:pencil', text: Add answers}
       type: Button
     layout_properties: {grid_position: 'BJDCKS,HKCAZF'}
     name: flow_panel_1
@@ -31,7 +37,7 @@ components:
     type: FlowPanel
   - layout_properties: {grid_position: 'BDBBKM,EAKBLP'}
     name: button_1
-    properties: {bold: false, text: Create post}
+    properties: {bold: false, text: Create post, visible: false}
     type: Button
   layout_properties: {grid_position: 'JRHWFZ,IOHUYN'}
   name: column_panel_1

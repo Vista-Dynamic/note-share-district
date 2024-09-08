@@ -16,4 +16,6 @@ import anvil.server
 #   print("Hello, " + name + "!")
 #   return 42
 #
-
+@anvil.server.callable
+def addPost(postDict):
+  app_tables.uploads.add_row()

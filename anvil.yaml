@@ -1,16 +1,16 @@
 allow_embedding: false
 db_schema:
   uploads:
-    client: none
+    client: full
     columns:
     - admin_ui: {order: 0, width: 200}
-      name: Post Photos
+      name: media
       type: media
     - admin_ui: {order: -1, width: 200}
       name: PostID
       type: string
     - admin_ui: {order: 1, width: 200}
-      name: Post Text
+      name: content
       type: string
     - admin_ui: {order: 2, width: 200}
       name: UserID
@@ -18,10 +18,13 @@ db_schema:
     - admin_ui: {order: -0.5, width: 200}
       name: Popularity
       type: number
+    - admin_ui: {order: 1.5, width: 200}
+      name: title
+      type: string
     server: full
     title: UploadMedia
   users:
-    client: none
+    client: search
     columns:
     - admin_ui: {order: 0, width: 200}
       name: email
@@ -50,7 +53,7 @@ db_schema:
     server: full
     title: Users
   usersadded:
-    client: none
+    client: full
     columns: []
     server: full
     title: UsersAdded

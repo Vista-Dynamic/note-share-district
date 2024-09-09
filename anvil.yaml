@@ -16,7 +16,7 @@ db_schema:
       name: UserID
       type: string
     - admin_ui: {order: -0.5, width: 200}
-      name: Popularity
+      name: Upvotes
       type: number
     - admin_ui: {order: 1.5, width: 200}
       name: title

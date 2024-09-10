@@ -23,11 +23,11 @@ class ItemTemplate1(ItemTemplate1Template):
       "title": title,
       "content": content,
       "media": image,
-      "upvotes": 0,
+      "upvotes": self.item['Upvotes'],
       "comments": comments})
 
   def Upvote_click(self, **event_args):
-    self.item['Upvotes'] =+ 1
+    self.item['Upvotes'] = self.item['Upvotes'] + 1
     
     
     

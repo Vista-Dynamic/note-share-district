@@ -14,6 +14,7 @@ class PostForm(PostFormTemplate):
     self.link_1.text = parameters['title']
     self.content.content = parameters['content']
     self.image_1.source = parameters['media']
+    self.Upvote.text = parameters['upvotes']
     for i,v in parameters.items():
       print(i)
       print(v)

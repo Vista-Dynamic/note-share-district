@@ -20,7 +20,7 @@ import pybase64
 #
 @anvil.server.callable
 def addPost(postDict,user):
-  app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict)
+  app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0)
   
 @anvil.server.callable
 def getPosts():

@@ -34,7 +34,7 @@ components:
       type: Image
     - components:
       - data_bindings:
-        - {code: 'self.item[''Upvotes'']', property: text, writeback: false}
+        - {code: 'self.item['''']', property: text, writeback: false}
         layout_properties: {}
         name: Upvote
         properties: {icon: 'fa:arrow-circle-up', text: '---'}

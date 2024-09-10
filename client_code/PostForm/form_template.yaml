@@ -33,11 +33,15 @@ components:
       properties: {border: '', height: 171.45449829101562}
       type: Image
     - components:
-      - name: Upvote
-        properties: {text: ↑}
+      - data_bindings:
+        - {code: 'self.item[''Upvotes'']', property: text, writeback: false}
+        layout_properties: {}
+        name: Upvote
+        properties: {icon: 'fa:arrow-circle-up', text: '---'}
         type: Button
-      - name: Downvote
-        properties: {text: ↓}
+      - layout_properties: {}
+        name: Downvote
+        properties: {icon: 'fa:arrow-circle-down', text: '---'}
         type: Button
       layout_properties: {grid_position: 'BBYMOB,RRATYS'}
       name: flow_panel_1

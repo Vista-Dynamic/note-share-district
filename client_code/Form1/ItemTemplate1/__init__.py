@@ -25,5 +25,9 @@ class ItemTemplate1(ItemTemplate1Template):
       "media": image,
       "upvotes": 0,
       "comments": comments})
+
+  def Upvote_click(self, **event_args):
+    self.item['Upvotes'] =+ 1
+    
     
     

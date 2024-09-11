@@ -21,6 +21,7 @@ class Form1(Form1Template):
 
     if anvil.users.get_user():
       self.LogIn.visible = False
+      self.logOut.visible = True
     #print(user['email'])
     self.refreshPosts() #May Cause Issues
 
@@ -66,6 +67,12 @@ class Form1(Form1Template):
     if user:
       print(user)
       self.LogIn.visible = False
+      self.logOut.visible = True
   def refreshPosts(self):
     self.repeating_panel.items = anvil.server.call('getPosts')
-    
+
+  def logOut_click(self, **event_args):
+    anvil.users.logout()
+    self.logOut.visible = False
+    self.LogIn.visible = True
+    self.refresh_data_bindings()

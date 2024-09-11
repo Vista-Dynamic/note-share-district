@@ -32,6 +32,20 @@ db_schema:
       type: number
     server: full
     title: UploadMedia
+  upvote_data:
+    client: full
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: postID
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: userID
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: upvotes
+      type: number
+    server: full
+    title: Upvote Data
   users:
     client: search
     columns:
@@ -61,11 +75,6 @@ db_schema:
       type: datetime
     server: full
     title: Users
-  usersadded:
-    client: full
-    columns: []
-    server: full
-    title: UsersAdded
 name: Info Share District
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
 package_name: Info_Share_District

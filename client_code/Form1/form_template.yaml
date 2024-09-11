@@ -1,5 +1,17 @@
 components:
 - components:
+  - layout_properties: {grid_position: 'DTTFDC,MJDMON'}
+    name: flow_panel_1
+    properties: {}
+    type: FlowPanel
+  - layout_properties: {grid_position: 'DTTFDC,YGTHNN'}
+    name: Search
+    properties: {placeholder: Search}
+    type: TextBox
+  - layout_properties: {grid_position: 'DTTFDC,WYZJYD'}
+    name: button_3
+    properties: {icon: 'fa:search', icon_align: top, text: ''}
+    type: Button
   - components:
     - layout_properties: {grid_position: 'YRODTQ,YBPWZJ'}
       name: Name
@@ -17,7 +29,7 @@ components:
     type: RepeatingPanel
   layout_properties: {slot: default}
   name: column_panel_1
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"MJDMON":20,"YGTHNN":35,"WYZJYD":5}'}
   type: ColumnPanel
 - layout_properties: {slot: logo}
   name: image_1
@@ -41,6 +53,11 @@ components:
   - layout_properties: {grid_position: 'VABHQE,VHUUJC'}
     name: button_2
     properties: {text: enter answers}
+    type: Button
+  - event_bindings: {click: logOut_click}
+    layout_properties: {grid_position: 'FCCHIR,NRKPLZ'}
+    name: logOut
+    properties: {text: Logout, visible: false}
     type: Button
   layout_properties: {slot: left-nav}
   name: column_panel_2

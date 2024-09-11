@@ -21,7 +21,7 @@ components:
       - {code: 'self.item[''media'']', property: source, writeback: false}
       layout_properties: {full_width_row: false, grid_position: 'UYLXJX,TFFICI'}
       name: image_1
-      properties: {border: '', height: 171.45449829101562}
+      properties: {border: '', display_mode: shrink_to_fit, height: 171.45449829101562}
       type: Image
     - components:
       - data_bindings:

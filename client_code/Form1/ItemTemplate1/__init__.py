@@ -36,7 +36,8 @@ class ItemTemplate1(ItemTemplate1Template):
     ]
     userID = anvil.server.call('getUUID',user['email'])
     print(postID,anvil.users.get_user())
-    app_tables.upvote_data.add_row(postID-UV=)
-    
+    app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)
+
+
     
     

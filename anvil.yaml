@@ -39,13 +39,13 @@ db_schema:
     client: full
     columns:
     - admin_ui: {order: 0, width: 200}
-      name: postID
+      name: postID-UV
       type: string
-    - admin_ui: {order: 1, width: 200}
-      name: userID
+    - admin_ui: {order: -1, width: 200}
+      name: userID-UV
       type: string
     - admin_ui: {order: 2, width: 200}
-      name: upvotes
+      name: upvotes-UV
       type: number
     server: full
     title: Upvote Data

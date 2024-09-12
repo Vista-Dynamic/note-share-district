@@ -1,10 +1,11 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'DTTFDC,MJDMON'}
+  - components: []
+    layout_properties: {grid_position: 'DTTFDC,MJDMON'}
     name: flow_panel_1
     properties: {}
     type: FlowPanel
-  - layout_properties: {grid_position: 'DTTFDC,YGTHNN'}
+  - layout_properties: {grid_position: 'DTTFDC,AMHSKQ'}
     name: Search
     properties: {placeholder: Search}
     type: TextBox
@@ -29,7 +30,7 @@ components:
     type: RepeatingPanel
   layout_properties: {slot: default}
   name: column_panel_1
-  properties: {col_widths: '{"MJDMON":20,"YGTHNN":35,"WYZJYD":5}'}
+  properties: {col_widths: '{"MJDMON":35,"WYZJYD":4,"AMHSKQ":12}'}
   type: ColumnPanel
 - layout_properties: {slot: logo}
   name: image_1
@@ -53,6 +54,10 @@ components:
   - layout_properties: {grid_position: 'VABHQE,VHUUJC'}
     name: button_2
     properties: {text: enter answers}
+    type: Button
+  - layout_properties: {grid_position: 'DGRZKG,DIWTGS'}
+    name: button_4
+    properties: {icon: 'fa:book', text: Ask ai, visible: false}
     type: Button
   - event_bindings: {click: logOut_click}
     layout_properties: {grid_position: 'FCCHIR,NRKPLZ'}

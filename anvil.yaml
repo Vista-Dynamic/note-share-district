@@ -30,6 +30,9 @@ db_schema:
     - admin_ui: {order: -0.25, width: 200}
       name: Downvotes
       type: number
+    - admin_ui: {order: 3.5, width: 200}
+      name: Class
+      type: string
     server: full
     title: UploadMedia
   upvote_data:

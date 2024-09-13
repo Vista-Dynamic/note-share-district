@@ -5,6 +5,7 @@ from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
 import pybase64
+import uuid
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -20,8 +21,8 @@ import pybase64
 #
 @anvil.server.callable
 def addPost(postDict,user):
-  new_post = app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0)
-  return new_post.get_id()
+  postID = str(uuid.uuid4())
+  app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0,postID=postID)
   
 @anvil.server.callable
 def getPosts():

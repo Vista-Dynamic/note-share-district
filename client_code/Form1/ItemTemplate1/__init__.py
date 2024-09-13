@@ -31,10 +31,14 @@ class ItemTemplate1(ItemTemplate1Template):
       (user["email"], user) for user in app_tables.users.search()
     ]
     userID = anvil.server.call('getUUID',user['email'])
-    postID = app_tables.uploads.get_by_id()
-    existing_upvote = app_tables.upvote_data.search(postID_UV=self.item["postID"],userID_UV=userID)
-    self.item['Upvotes'] = self.item['Upvotes'] + 1
-    Upvotes = self.item['Upvotes'] + 1
-    self.Upvote.bold = True
-    postID = self.item['postID']
-    app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)
+    existing_upvote = app_tables.upvote_data.get(postID_UV=self.item["postID"],userID_UV=userID)
+    if existing_upvote:
+      print("Already Upvoted")
+    else:
+      print("Upvoting...")
+      self.item['Upvotes'] = self.item['Upvotes'] + 1
+      Upvotes = self.item['Upvotes']
+      self.Upvote.text = Upvotes
+      self.Upvote.bold = True
+      postID = self.item['postID']
+      app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)

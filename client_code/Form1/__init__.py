@@ -58,7 +58,7 @@ class Form1(Form1Template):
       if anvil.users.get_user():
         print(newPost)
         print(uuid)
-        postID = anvil.server.call('addPost',newPost,uuid)
+        anvil.server.call('addPost',newPost,uuid)
         self.refreshPosts()
       else:
         alert("Please login before posting!")

@@ -27,15 +27,18 @@ class ItemTemplate1(ItemTemplate1Template):
       "comments": comments})
 
   def Upvote_click(self, **event_args):
-    self.item['Upvotes'] = self.item['Upvotes'] + 1
-    Upvotes = self.item['Upvotes'] + 1
-    self.Upvote.bold = True
-    postID = self.item['postID']
-    self.users = [
+
+        self.users = [
       (user["email"], user) for user in app_tables.users.search()
     ]
     userID = anvil.server.call('getUUID',user['email'])
     print(postID,anvil.users.get_user())
+
+    existing_upvote = app_tables.upvote_data.search(postID_UV=self.item["postID"])
+    self.item['Upvotes'] = self.item['Upvotes'] + 1
+    Upvotes = self.item['Upvotes'] + 1
+    self.Upvote.bold = True
+    postID = self.item['postID']
     app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)
 
 

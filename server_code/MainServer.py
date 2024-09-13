@@ -20,11 +20,13 @@ import pybase64
 #
 @anvil.server.callable
 def addPost(postDict,user):
-  app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0)
+  new_post = app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0)
+  return new_post.get_id()
   
 @anvil.server.callable
 def getPosts():
   return app_tables.uploads.search(tables.order_by("created",ascending=False))
+  app_tables
 
 @anvil.server.callable
 def getUUID(email):

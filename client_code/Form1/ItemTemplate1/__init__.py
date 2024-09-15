@@ -33,12 +33,23 @@ class ItemTemplate1(ItemTemplate1Template):
     userID = anvil.server.call('getUUID',user['email'])
     existing_upvote = app_tables.upvote_data.get(postID_UV=self.item["postID"],userID_UV=userID)
     if existing_upvote:
-      print("Already Upvoted")
+      print("Un-Upvoting")
+      self.item['Upvotes'] = self.item['Upvotes'] - 1
+      Upvotes = self.item['Upvotes']
+      self.Upvote.text = Upvotes
+      self.Upvote.background = ""
+      self.Upvote.bold = False
+      postID = self.item['postID']
+      DelRow = app_tables.upvote_data.get(postID_UV=postID,userID_UV=userID)
+      DelRow.delete()
+      
     else:
       print("Upvoting...")
       self.item['Upvotes'] = self.item['Upvotes'] + 1
       Upvotes = self.item['Upvotes']
       self.Upvote.text = Upvotes
+      self.Upvote.background = "theme:Secondary Container"
       self.Upvote.bold = True
       postID = self.item['postID']
       app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)
+      

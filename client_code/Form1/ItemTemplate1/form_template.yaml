@@ -29,7 +29,7 @@ components:
         event_bindings: {click: Upvote_click}
         layout_properties: {}
         name: Upvote
-        properties: {icon: 'fa:arrow-circle-up', text: '---'}
+        properties: {background: '', icon: 'fa:arrow-circle-up', text: '---'}
         type: Button
       - layout_properties: {}
         name: Downvote

@@ -1,6 +1,8 @@
 components:
 - components:
-  - layout_properties: {grid_position: 'DLBGMC,ODQVIA'}
+  - data_bindings:
+    - {code: 'self.item[''CommentText'']', property: content, writeback: false}
+    layout_properties: {grid_position: 'DLBGMC,ODQVIA'}
     name: rich_text_1
     properties: {align: left, content: 'Comment:', format: markdown}
     type: RichText

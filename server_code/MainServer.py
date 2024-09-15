@@ -34,4 +34,5 @@ def getUUID(email):
   encodedEmail = email.encode("utf-8")
   uuid = pybase64.b64encode(encodedEmail)
   encodedEmailString = uuid.decode("utf-8")
+  print(encodedEmailString)
   return encodedEmailString

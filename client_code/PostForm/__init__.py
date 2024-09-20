@@ -18,9 +18,33 @@ class PostForm(PostFormTemplate):
     for i,v in parameters.items():
       print(i)
       print(v)
-   
+
+  
+  def getUUID(self):
+    self.users = [
+    (user['email'], user) for user in app_tables.users.search()
+    ]
+    if anvil.users.get_user():
+      uuid = anvil.server.call('getUUID',user['email'])
+      print(uuid)
+      return uuid
+      
 
     # Any code you write here will run before the form opens.
 
   def button_2_click(self, **event_args):
     open_form("Form1")
+
+  def button_1_click(self, **event_args):
+    if anvil.users.get_user():
+      print(f"Commenting {self.comment.text}")
+    if self.comment.text == "":
+      print("No comment given")
+    else:
+      print("Commenting...")
+      self.comment.text = self.comment.placeholder
+      content = {}
+      print(self.item["CommentText"])
+
+  def file_loader_1_change(self, file, **event_args):
+    

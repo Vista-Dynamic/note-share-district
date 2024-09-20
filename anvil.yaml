@@ -1,7 +1,7 @@
 allow_embedding: false
 db_schema:
   comments:
-    client: none
+    client: full
     columns:
     - admin_ui: {order: 0, width: 200}
       name: CommentText
@@ -15,6 +15,9 @@ db_schema:
     - admin_ui: {order: 3, width: 200}
       name: Date_Commented
       type: datetime
+    - admin_ui: {order: 0.5, width: 200}
+      name: CommentImage
+      type: media
     server: full
     title: Comments
   uploads:

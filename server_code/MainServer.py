@@ -37,3 +37,7 @@ def getUUID(email):
   print(encodedEmailString)
   print(uuid)
   return encodedEmailString
+
+def addComment(commentdict,user):
+  print("Sercer Recieved")
+  

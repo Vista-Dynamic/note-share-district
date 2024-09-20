@@ -6,6 +6,10 @@ components:
     name: rich_text_1
     properties: {align: left, content: 'Comment:', format: markdown}
     type: RichText
+  - layout_properties: {grid_position: 'CBCOBK,HBDQIM'}
+    name: image_1
+    properties: {visible: false}
+    type: Image
   - components:
     - layout_properties: {}
       name: button_1

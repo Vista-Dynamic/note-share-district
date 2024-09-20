@@ -38,6 +38,15 @@ class Form1(Form1Template):
     print(f"self.item = {self.item}")"""
     #alert((f"self.item = {self.item}"))
 
+  def getUUID(self):
+    self.users = [
+    (user['email'], user) for user in app_tables.users.search()
+    ]
+    if anvil.users.get_user():
+      uuid = anvil.server.call('getUUID',user['email'])
+      print(uuid)
+      return uuid
+      
 
   def button_1_click(self, **event_args):
     #open_form('CreatePost')

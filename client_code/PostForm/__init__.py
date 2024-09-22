@@ -10,28 +10,28 @@ import anvil.server
 class PostForm(PostFormTemplate):
   def __init__(self, parameters, **properties):
     # Set Form properties and Data Bindings.
-    
-    self.init_components(**properties,**parameters)
-    
-    print("Testing Error")
+    self.init_components(**properties)
     self.link_1.text = parameters['title']
     self.content.content = parameters['content']
-    if parameters["media"] is not None:
-      print(parameters["media"])
+    if parameters["media"]:
       self.image_1.source = parameters['media']
     self.Upvote.text = parameters['upvotes']
-    for i, v in parameters.items():
+    for i,v in parameters.items():
       print(i)
       print(v)
 
+  
   def getUUID(self):
     self.users = [
-      (user['email'], user) for user in app_tables.users.search()
+    (user['email'], user) for user in app_tables.users.search()
     ]
     if anvil.users.get_user():
-      uuid = anvil.server.call('getUUID', user['email'])
+      uuid = anvil.server.call('getUUID',user['email'])
       print(uuid)
       return uuid
+      
+
+    # Any code you write here will run before the form opens.
 
   def button_2_click(self, **event_args):
     open_form("Form1")
@@ -43,14 +43,10 @@ class PostForm(PostFormTemplate):
       print("No comment given")
     else:
       print("Commenting...")
+      self.comment.text = self.comment.placeholder
       content = {"CommentText": self.comment.text, "CommentImage": self.file_loader_1.file}
-      print(content["CommentText"])
-      anvil.server.call("addComment", content)
-      self.comment.text = ""
+      print(self.item["CommentText"])
+      anvil.server.call("addComment",content)
 
   def file_loader_1_change(self, file, **event_args):
-    # Handle file upload here
-    print(f"File uploaded: {file.name}")
-    self.file_loader_1.file = file
-
-
+    pass

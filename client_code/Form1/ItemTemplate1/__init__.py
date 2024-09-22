@@ -19,8 +19,6 @@ class ItemTemplate1(ItemTemplate1Template):
     content = self.content.content
     if self.item['media']:
       image = self.item['media']
-    else:
-      image = None
     comments = {}
     open_form('PostForm',parameters = {
       "title": title,

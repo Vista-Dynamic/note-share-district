@@ -25,12 +25,11 @@ components:
     properties: {}
     type: TextArea
   - components:
-    - data_bindings:
-      - {code: 'self.item[''media'']', property: file, writeback: false}
+    - data_bindings: []
       event_bindings: {change: Image_change}
       layout_properties: {}
       name: Image
-      properties: {file_types: image/*, text: Upload Image}
+      properties: {file_types: '', text: Upload Image}
       type: FileLoader
     - layout_properties: {}
       name: Answers

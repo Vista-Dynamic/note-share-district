@@ -11,10 +11,13 @@ class PostForm(PostFormTemplate):
   def __init__(self, parameters, **properties):
     # Set Form properties and Data Bindings.
     
-    self.init_components(**properties)
+    self.init_components(**properties,**parameters)
+    
+    print("Testing Error")
     self.link_1.text = parameters['title']
     self.content.content = parameters['content']
-    if parameters["media"]:
+    if parameters["media"] is not None:
+      print(parameters["media"])
       self.image_1.source = parameters['media']
     self.Upvote.text = parameters['upvotes']
     for i, v in parameters.items():

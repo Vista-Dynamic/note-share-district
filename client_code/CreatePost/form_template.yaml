@@ -25,7 +25,8 @@ components:
     properties: {}
     type: TextArea
   - components:
-    - data_bindings: []
+    - data_bindings:
+      - {code: 'self.item[''media'']', property: file, writeback: false}
       event_bindings: {change: Image_change}
       layout_properties: {}
       name: Image

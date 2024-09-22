@@ -17,7 +17,7 @@ class ItemTemplate1(ItemTemplate1Template):
   def link_1_click(self, **event_args):
     title = self.link_1.text
     content = self.content.content
-    image = self.image_1.source
+    image = self.item['media']
     comments = {}
     open_form('PostForm',parameters = {
       "title": title,

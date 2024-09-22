@@ -38,6 +38,8 @@ def getUUID(email):
   print(uuid)
   return encodedEmailString
 
+@anvil.server.callable
 def addComment(commentdict,user):
   print("Sercer Recieved")
+  app_tables.comments.add_row(Likes=0,Dislikes=0,Date_Commented=datetime.now,**commentdict)
   

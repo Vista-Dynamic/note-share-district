@@ -13,8 +13,8 @@ class PostForm(PostFormTemplate):
     self.init_components(**properties)
     self.link_1.text = parameters['title']
     self.content.content = parameters['content']
-    if parameters["media"]:
-      self.image_1.source = parameters['media']
+"""    if parameters["media"]:
+      self.image_1.source = parameters['media']"""
     self.Upvote.text = parameters['upvotes']
     for i,v in parameters.items():
       print(i)

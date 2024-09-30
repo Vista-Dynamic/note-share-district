@@ -17,13 +17,13 @@ class ItemTemplate1(ItemTemplate1Template):
   def link_1_click(self, **event_args):
     title = self.link_1.text
     content = self.content.content
-    if self.item['media']:
-      image = self.item['media']
+#    if self.item['media']:
+#      image = self.item['media']
     comments = {}
     open_form('PostForm',parameters = {
       "title": title,
       "content": content,
-      "media": image,
+#     "media": image,
       "upvotes": self.item['Upvotes'],
       "comments": comments})
 

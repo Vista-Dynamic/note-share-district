@@ -7,14 +7,15 @@ from anvil.tables import app_tables
 import anvil.server
 
 
+
 class PostForm(PostFormTemplate):
   def __init__(self, parameters, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.link_1.text = parameters['title']
     self.content.content = parameters['content']
-"""    if parameters["media"]:
-      self.image_1.source = parameters['media']"""
+    if parameters["media"]:
+      self.image_1.source = parameters['media']
     self.Upvote.text = parameters['upvotes']
     for i,v in parameters.items():
       print(i)
@@ -39,14 +40,21 @@ class PostForm(PostFormTemplate):
   def button_1_click(self, **event_args):
     if anvil.users.get_user():
       print(f"Commenting {self.comment.text}")
+    else:
+      alert("Please log in!")
     if self.comment.text == "":
       print("No comment given")
     else:
       print("Commenting...")
       self.comment.text = self.comment.placeholder
-      content = {"CommentText": self.comment.text, "CommentImage": self.file_loader_1.file}
+      content = self.comment.text
+      #{"CommentText": self.comment.text}
       print(self.item["CommentText"])
-      anvil.server.call("addComment",content)
+      self.users = [
+      (user['email'], user) for user in app_tables.users.search()
+      ]
+      uuid = anvil.server.call('getUUID',user['email'])
+      anvil.server.call("addComment",content,uuid)
 
   def file_loader_1_change(self, file, **event_args):
     pass

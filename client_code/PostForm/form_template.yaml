@@ -30,7 +30,7 @@ components:
       - {code: 'self.item[''media'']', property: source, writeback: false}
       layout_properties: {full_width_row: false, grid_position: 'UYLXJX,TFFICI'}
       name: image_1
-      properties: {border: '', display_mode: fill_width, height: 171.45449829101562}
+      properties: {border: '', display_mode: fill_width, height: 171.45449829101562, source: ''}
       type: Image
     - components:
       - data_bindings:
@@ -54,13 +54,6 @@ components:
       properties: {auto_expand: true, height: 51.727264404296875}
       type: TextArea
     - components:
-      - data_bindings:
-        - {code: 'self.item[''CommentImage'']', property: file, writeback: false}
-        event_bindings: {change: file_loader_1_change}
-        layout_properties: {}
-        name: file_loader_1
-        properties: {file_types: image/*, icon: 'fa:file-image-o', icon_align: top, text: ''}
-        type: FileLoader
       - event_bindings: {click: button_1_click}
         layout_properties: {}
         name: button_1

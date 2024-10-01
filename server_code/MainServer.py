@@ -27,7 +27,6 @@ def addPost(postDict,user):
 @anvil.server.callable
 def getPosts():
   return app_tables.uploads.search(tables.order_by("created",ascending=False))
-  app_tables
 
 @anvil.server.callable
 def getUUID(email):
@@ -39,7 +38,11 @@ def getUUID(email):
   return encodedEmailString
 
 @anvil.server.callable
-def addComment(comment,user):
+def addComment(comment,image,user):
   print("Sercer Recieved")
-  app_tables.comments.add_row(Likes=0,Dislikes=0,CommentText=comment,UserCommented=user,DateCommented=datetime.now())
+  print(comment)
+  app_tables.comments.add_row(Likes=0,Dislikes=0,CommentText=comment,UserCommented=user,DateCommented=datetime.now(),Comment_Image=image)
 
+@anvil.server.callable
+def getComments():
+  return app_tables.comments.search(tables.order_by("DateCommented",ascending=False))

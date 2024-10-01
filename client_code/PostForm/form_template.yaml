@@ -54,6 +54,11 @@ components:
       properties: {auto_expand: true, height: 51.727264404296875}
       type: TextArea
     - components:
+      - data_bindings: []
+        event_bindings: {change: file_loader_1_change}
+        name: file_loader_1
+        properties: {}
+        type: FileLoader
       - event_bindings: {click: button_1_click}
         layout_properties: {}
         name: button_1

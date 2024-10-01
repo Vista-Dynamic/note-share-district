@@ -23,7 +23,7 @@ class ItemTemplate1(ItemTemplate1Template):
     open_form('PostForm',parameters = {
       "title": title,
       "content": content,
-     "media": image,
+      "media": image,
       "upvotes": self.item['Upvotes'],
       "comments": comments})
 

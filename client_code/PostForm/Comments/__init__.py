@@ -11,5 +11,5 @@ class Comments(CommentsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    self.image_1.source = self.item['Comment_Image']
     # Any code you write here will run before the form opens.

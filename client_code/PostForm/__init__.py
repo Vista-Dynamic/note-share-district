@@ -5,7 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-
+from time import sleep
 
 
 class PostForm(PostFormTemplate):
@@ -17,10 +17,14 @@ class PostForm(PostFormTemplate):
     if parameters["media"]:
       self.image_1.source = parameters['media']
     self.Upvote.text = parameters['upvotes']
+    self.refreshComments()
     for i,v in parameters.items():
       print(i)
       print(v)
+  
 
+  def refreshComments(self):
+    self.repeating_panel_1.items = anvil.server.call('getComments')
   
   def getUUID(self):
     self.users = [
@@ -46,15 +50,20 @@ class PostForm(PostFormTemplate):
       print("No comment given")
     else:
       print("Commenting...")
-      self.comment.text = self.comment.placeholder
+      #self.comment.text = self.comment.placeholder
       content = self.comment.text
+      image = self.file_loader_1.file
       #{"CommentText": self.comment.text}
-      print(self.item["CommentText"])
+      print(content)
       self.users = [
       (user['email'], user) for user in app_tables.users.search()
       ]
       uuid = anvil.server.call('getUUID',user['email'])
-      anvil.server.call("addComment",content,uuid)
+      anvil.server.call("addComment",content,image,uuid)
+      sleep(.8)
+      self.comment.text = ""
+      self.file_loader_1.clear()
+      self.refreshComments()
 
   def file_loader_1_change(self, file, **event_args):
-    pass
+    self.item['Comment_Image'] = file

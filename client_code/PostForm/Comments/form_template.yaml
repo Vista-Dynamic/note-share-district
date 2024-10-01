@@ -10,7 +10,7 @@ components:
     - {code: 'self.item[''Comment_Image'']', property: source, writeback: false}
     layout_properties: {grid_position: 'CBCOBK,HBDQIM'}
     name: image_1
-    properties: {visible: false}
+    properties: {display_mode: fill_width, visible: false}
     type: Image
   - components:
     - data_bindings:

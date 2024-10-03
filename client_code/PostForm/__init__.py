@@ -59,6 +59,7 @@ class PostForm(PostFormTemplate):
       (user['email'], user) for user in app_tables.users.search()
       ]
       uuid = anvil.server.call('getUUID',user['email'])
+      postID = self.item['postID']
       anvil.server.call("addComment",content,image,uuid)
       sleep(.8)
       self.comment.text = ""

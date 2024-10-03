@@ -24,6 +24,7 @@ class Form1(Form1Template):
       self.LogIn.visible = False
       self.logOut.visible = True
     #print(user['email'])
+    time.sleep(2)
     self.refreshPosts() #May Cause Issues
 
 

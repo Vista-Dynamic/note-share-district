@@ -7,6 +7,7 @@ from anvil.tables import app_tables
 import anvil.server
 
 
+
 class ItemTemplate1(ItemTemplate1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -17,6 +18,7 @@ class ItemTemplate1(ItemTemplate1Template):
   def link_1_click(self, **event_args):
     title = self.link_1.text
     content = self.content.content
+    postID = self.item['postID']
     if self.item['media']:
       image = self.item['media']
     comments = {}
@@ -25,8 +27,10 @@ class ItemTemplate1(ItemTemplate1Template):
       "content": content,
       "media": image,
       "upvotes": self.item['Upvotes'],
-      "comments": comments})
+      "comments": comments,
+      "postID": postID})
 
+  
   def Upvote_click(self, **event_args):
     self.users = [
       (user["email"], user) for user in app_tables.users.search()
@@ -43,7 +47,7 @@ class ItemTemplate1(ItemTemplate1Template):
       postID = self.item['postID']
       DelRow = app_tables.upvote_data.get(postID_UV=postID,userID_UV=userID)
       DelRow.delete()
-      
+
     else:
       print("Upvoting...")
       self.item['Upvotes'] = self.item['Upvotes'] + 1

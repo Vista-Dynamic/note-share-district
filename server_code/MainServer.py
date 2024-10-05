@@ -23,7 +23,7 @@ import uuid
 def addPost(postDict,user):
   postID = str(uuid.uuid4())
   app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0,postID=postID)
-  
+  #return postID
 @anvil.server.callable
 def getPosts():
   return app_tables.uploads.search(tables.order_by("created",ascending=True))
@@ -40,8 +40,9 @@ def getUUID(email):
 @anvil.server.callable
 def addComment(comment,image,user,postID):
   print("Sercer Recieved")
+  print(postID)
   print(comment)
-  app_tables.comments.add_row(Likes=0,Dislikes=0,CommentText=comment,UserCommented=user,DateCommented=datetime.now(),Comment_Image=image)
+  app_tables.comments.add_row(Likes=0,Dislikes=0,CommentText=comment,UserCommented=user,DateCommented=datetime.now(),Comment_Image=image,CommentPostID=postID)
 
 @anvil.server.callable
 def getComments():

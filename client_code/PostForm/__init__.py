@@ -17,6 +17,9 @@ class PostForm(PostFormTemplate):
     if parameters["media"]:
       self.image_1.source = parameters['media']
     self.Upvote.text = parameters['upvotes']
+    print(parameters['postID'])
+    global postIDG
+    postIDG = parameters['postID']
     self.refreshComments()
     for i,v in parameters.items():
       print(i)
@@ -33,6 +36,7 @@ class PostForm(PostFormTemplate):
     if anvil.users.get_user():
       uuid = anvil.server.call('getUUID',user['email'])
       print(uuid)
+      print("38")
       return uuid
       
 
@@ -59,8 +63,11 @@ class PostForm(PostFormTemplate):
       (user['email'], user) for user in app_tables.users.search()
       ]
       uuid = anvil.server.call('getUUID',user['email'])
-      postID = self.item['postID']
-      anvil.server.call("addComment",content,image,uuid)
+      print(postIDG)
+      print(self.tag)
+      print(self.label_1.text)
+      postID = postIDG
+      anvil.server.call("addComment",content,image,uuid,postID)
       sleep(.8)
       self.comment.text = ""
       self.file_loader_1.clear()

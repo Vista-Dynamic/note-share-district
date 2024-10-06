@@ -34,7 +34,8 @@ components:
       type: Image
     - components:
       - data_bindings:
-        - {code: 'self.item['''']', property: text, writeback: false}
+        - {code: 'self.item[''Upvotes'']', property: text, writeback: false}
+        event_bindings: {click: Upvote_click}
         layout_properties: {}
         name: Upvote
         properties: {icon: 'fa:arrow-circle-up', text: '---'}
@@ -91,5 +92,6 @@ container:
   data_bindings: []
   properties: {col_spacing: large}
   type: ColumnPanel
+custom_component: true
 is_package: true
 item_type: {table_id: 831775}

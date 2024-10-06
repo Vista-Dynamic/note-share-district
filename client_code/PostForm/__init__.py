@@ -10,8 +10,11 @@ from time import sleep
 
 class PostForm(PostFormTemplate):
   def __init__(self, parameters, **properties):
+    print(self.item)
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    uploadsPostRow = app_tables.uploads.get(postID=parameters['postID'])
+    self.uploads = uploadsPostRow
     self.link_1.text = parameters['title']
     self.content.content = parameters['content']
     if parameters["media"]:
@@ -75,3 +78,31 @@ class PostForm(PostFormTemplate):
 
   def file_loader_1_change(self, file, **event_args):
     self.item['Comment_Image'] = file
+
+  def Upvote_click(self, **event_args):
+    self.users = [
+      (user["email"], user) for user in app_tables.users.search()
+    ]
+    userID = anvil.server.call('getUUID',user['email'])
+    existing_upvote = app_tables.upvote_data.get(postID_UV=postIDG,userID_UV=userID)
+    if existing_upvote:
+      print("Un-Upvoting")
+      Upvotes = self.uploads['Upvotes'] - 1
+      self.uploads['Upvotes'] = Upvotes
+      self.Upvote.text = Upvotes
+      self.Upvote.background = ""
+      self.Upvote.bold = False
+      postID = postIDG
+      DelRow = app_tables.upvote_data.get(postID_UV=postID,userID_UV=userID)
+      DelRow.delete()
+
+    else:
+      print("Upvoting...")
+      self.uploads['Upvotes'] = self.uploads['Upvotes'] + 1
+      Upvotes = self.uploads['Upvotes']
+      self.Upvote.text = Upvotes
+      self.Upvote.background = "theme:Secondary Container"
+      self.Upvote.bold = True
+      postID = self.uploads['postID']
+      app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)
+      

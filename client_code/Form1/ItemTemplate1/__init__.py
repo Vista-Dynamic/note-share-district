@@ -21,6 +21,8 @@ class ItemTemplate1(ItemTemplate1Template):
     postID = self.item['postID']
     if self.item['media']:
       image = self.item['media']
+    else:
+      image = None
     comments = {}
     open_form('PostForm',parameters = {
       "title": title,
@@ -30,7 +32,6 @@ class ItemTemplate1(ItemTemplate1Template):
       "comments": comments,
       "postID": postID})
 
-  
   def Upvote_click(self, **event_args):
     self.users = [
       (user["email"], user) for user in app_tables.users.search()

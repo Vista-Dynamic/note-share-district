@@ -45,5 +45,7 @@ def addComment(comment,image,user,postID):
   app_tables.comments.add_row(Likes=0,Dislikes=0,CommentText=comment,UserCommented=user,DateCommented=datetime.now(),Comment_Image=image,CommentPostID=postID)
 
 @anvil.server.callable
-def getComments():
-  return app_tables.comments.search(tables.order_by("DateCommented",ascending=False))
+def getComments(post_ID):
+  #eturn app_tables.comments.search(tables.order_by("DateCommented",ascending=False))
+  return app_tables.comments.search(tables.order_by("DateCommented",ascending=False),CommentPostID=post_ID)
+  #return app_tables.comments.get(CommentPostID=post_ID)

@@ -27,7 +27,7 @@ class PostForm(PostFormTemplate):
   
 
   def refreshComments(self):
-    self.repeating_panel_1.items = anvil.server.call('getComments')
+    self.repeating_panel_1.items = anvil.server.call('getComments',postIDG)
   
   def getUUID(self):
     self.users = [

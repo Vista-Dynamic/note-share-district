@@ -22,7 +22,7 @@ import uuid
 @anvil.server.callable
 def addPost(postDict,user):
   postID = str(uuid.uuid4())
-  app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0,postID=postID)
+  app_tables.uploads.add_row(created=datetime.now(),UserID=user,**postDict,Upvotes=0,postID=postID,Downvotes=0)
   #return postID
 @anvil.server.callable
 def getPosts():

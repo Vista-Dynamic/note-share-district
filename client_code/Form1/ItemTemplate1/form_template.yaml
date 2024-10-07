@@ -31,7 +31,10 @@ components:
         name: Upvote
         properties: {background: '', icon: 'fa:arrow-circle-up', text: '---'}
         type: Button
-      - layout_properties: {}
+      - data_bindings:
+        - {code: 'self.item[''Downvotes'']', property: text, writeback: false}
+        event_bindings: {click: Downvote_click}
+        layout_properties: {}
         name: Downvote
         properties: {icon: 'fa:arrow-circle-down', text: '---'}
         type: Button

@@ -38,7 +38,28 @@ class ItemTemplate1(ItemTemplate1Template):
     ]
     userID = anvil.server.call('getUUID',user['email'])
     existing_upvote = app_tables.upvote_data.get(postID_UV=self.item["postID"],userID_UV=userID)
-    if existing_upvote:
+    existing_downvote = app_tables.downvote_data.get(postID_DV=self.item["postID"],userID_DV=userID)
+    if existing_downvote:
+      print("Un-Downvoting")
+      self.item['Downvotes'] = self.item['Downvotes'] - 1
+      Downvotes = self.item['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = ""
+      self.Downvote.bold = False
+      postID = self.item['postID']
+      DelRow = app_tables.downvote_data.get(postID_DV=postID,userID_DV=userID)
+      DelRow.delete()
+
+      #Upvoting:
+      print("Upvoting...")
+      self.item['Upvotes'] = self.item['Upvotes'] + 1
+      Upvotes = self.item['Upvotes']
+      self.Upvote.text = Upvotes
+      self.Upvote.background = "theme:Secondary Container"
+      self.Upvote.bold = True
+      postID = self.item['postID']
+      app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV=Upvotes)
+    elif existing_upvote:
       print("Un-Upvoting")
       self.item['Upvotes'] = self.item['Upvotes'] - 1
       Upvotes = self.item['Upvotes']
@@ -58,4 +79,56 @@ class ItemTemplate1(ItemTemplate1Template):
       self.Upvote.bold = True
       postID = self.item['postID']
       app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)
+
+
+  
+  def Downvote_click(self, **event_args):
+    self.users = [
+      (user["email"], user) for user in app_tables.users.search()
+    ]
+    userID = anvil.server.call('getUUID',user['email'])
+    existing_upvote = app_tables.upvote_data.get(postID_UV=self.item["postID"],userID_UV=userID)
+    existing_downvote = app_tables.downvote_data.get(postID_DV=self.item["postID"],userID_DV=userID)
+    if existing_upvote:
+      print("Un-Upvoting")
+      self.item['Upvotes'] = self.item['Upvotes'] - 1
+      Upvotes = self.item['Upvotes']
+      self.Upvote.text = Upvotes
+      self.Upvote.background = ""
+      self.Upvote.bold = False
+      postID = self.item['postID']
+      DelRow = app_tables.upvote_data.get(postID_UV=postID,userID_UV=userID)
+      DelRow.delete()
+
+      #Downvoting:
+      print("Downvoting...")
+      self.item['Downvotes'] = self.item['Downvotes'] + 1
+      Downvotes = self.item['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = "theme:Secondary Container"
+      self.Downvote.bold = True
+      postID = self.item['postID']
+      app_tables.downvote_data.add_row(postID_DV=postID,userID_DV=userID,downvotes_DV=Downvotes)
+
+    elif existing_downvote:
+      print("Un-Downvoting")
+      self.item['Downvotes'] = self.item['Downvotes'] - 1
+      Downvotes = self.item['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = ""
+      self.Downvote.bold = False
+      postID = self.item['postID']
+      DelRow = app_tables.downvote_data.get(postID_DV=postID,userID_DV=userID)
+      DelRow.delete()
+
+    else:
+      print("Downvoting...")
+      self.item['Downvotes'] = self.item['Downvotes'] + 1
+      Downvotes = self.item['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = "theme:Secondary Container"
+      self.Downvote.bold = True
+      postID = self.item['postID']
+      app_tables.downvote_data.add_row(postID_DV=postID,userID_DV=userID,downvotes_DV=Downvotes)
+
       

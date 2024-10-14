@@ -89,3 +89,4 @@ class Form1(Form1Template):
     self.logOut.visible = False
     self.LogIn.visible = True
     self.refresh_data_bindings()
+

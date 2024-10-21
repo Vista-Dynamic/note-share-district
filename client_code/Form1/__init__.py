@@ -21,6 +21,7 @@ class Form1(Form1Template):
       (user['email'], user) for user in app_tables.users.search()
     ]
     
+    anvil.server.call("getActive")
 
     if anvil.users.get_user():
       self.LogIn.visible = False
@@ -89,4 +90,6 @@ class Form1(Form1Template):
     self.logOut.visible = False
     self.LogIn.visible = True
     self.refresh_data_bindings()
+
+
 

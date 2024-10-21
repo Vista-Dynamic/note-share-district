@@ -140,3 +140,4 @@ services:
   server_config: {enc_delegation_refresh_token: RMfG1nj3dQjFWt4OppUmtFFzZIgteqkho/Wx5jPnZo0XtPmsKzT6d74Yi1M38WznNADc1R8WlpeMs9nan2JSlcO8D6egYWObOYHUyHQzgEMMRzG21byXAuBAxyntlmoo9ZjcAVDR5qGfi6rIIEYl30CiRHMm/qqL4MJqE6MboYLmgHVK6Hu6x+hpE5Ijuagd7WhRAjppaLMg/Hdvn2u/q5dS9wwvmdqKIyngQl+1w8t4ok5RW7B4RucCU9HtI6qIswFwt4ZnvfYT9TJdlm64tKuW4t+2A4xGu/eucgQ7GPG1FpbzdSlqx30s0jFeYQ==}
   source: /runtime/services/google.yml
 startup_form: Form1
+uplink_visible: true

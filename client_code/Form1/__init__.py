@@ -21,7 +21,7 @@ class Form1(Form1Template):
       (user['email'], user) for user in app_tables.users.search()
     ]
     
-    anvil.server.call("getActive")
+    Test = anvil.server.call("getActive")
 
     if anvil.users.get_user():
       self.LogIn.visible = False

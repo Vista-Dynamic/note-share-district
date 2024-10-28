@@ -22,6 +22,7 @@ class PostForm(PostFormTemplate):
     if parameters["media"]:
       self.image_1.source = parameters['media']
     self.Upvote.text = parameters['upvotes']
+    self.Downvote.text = self.uploads["Downvotes"]
     print(parameters['postID'])
     global postIDG
     postIDG = parameters['postID']
@@ -51,13 +52,12 @@ class PostForm(PostFormTemplate):
     open_form("Form1")
 
   def button_1_click(self, **event_args):
-    if anvil.users.get_user():
-      print(f"Commenting {self.comment.text}")
-    else:
+    if not anvil.users.get_user():
       alert("Please log in!")
-    if self.comment.text == "":
-      print("No comment given")
+    elif self.comment.text == "":
+      alert("No comment given")
     else:
+      print(f"Commenting {self.comment.text}")
       print("Commenting...")
       #self.comment.text = self.comment.placeholder
       content = self.comment.text
@@ -81,16 +81,42 @@ class PostForm(PostFormTemplate):
   def file_loader_1_change(self, file, **event_args):
     self.item['Comment_Image'] = file
 
+  
+  
   def Upvote_click(self, **event_args):
     self.users = [
       (user["email"], user) for user in app_tables.users.search()
     ]
     userID = anvil.server.call('getUUID',user['email'])
     existing_upvote = app_tables.upvote_data.get(postID_UV=postIDG,userID_UV=userID)
-    if existing_upvote:
+    existing_downvote = app_tables.downvote_data.get(postID_DV=postIDG,userID_DV=userID)
+
+    if not anvil.users.get_user():
+      alert("Must log in to upvote!")
+    elif existing_downvote:
+      print("Un-Downvoting")
+      self.uploads['Downvotes'] = self.uploads['Downvotes'] - 1
+      Downvotes = self.uploads['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = ""
+      self.Downvote.bold = False
+      postID = postIDG
+      DelRow = app_tables.downvote_data.get(postID_DV=postID,userID_DV=userID)
+      DelRow.delete()
+
+      #Upvoting:
+      print("Upvoting...")
+      self.uploads['Upvotes'] = self.uploads['Upvotes'] + 1
+      Upvotes = self.uploads['Upvotes']
+      self.Upvote.text = Upvotes
+      self.Upvote.background = "theme:Secondary Container"
+      self.Upvote.bold = True
+      postID = postIDG
+      app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV=Upvotes)
+    elif existing_upvote:
       print("Un-Upvoting")
-      Upvotes = self.uploads['Upvotes'] - 1
-      self.uploads['Upvotes'] = Upvotes
+      self.uploads['Upvotes'] = self.uploads['Upvotes'] - 1
+      Upvotes = self.uploads['Upvotes']
       self.Upvote.text = Upvotes
       self.Upvote.background = ""
       self.Upvote.bold = False
@@ -105,6 +131,66 @@ class PostForm(PostFormTemplate):
       self.Upvote.text = Upvotes
       self.Upvote.background = "theme:Secondary Container"
       self.Upvote.bold = True
-      postID = self.uploads['postID']
+      postID = postIDG
       app_tables.upvote_data.add_row(postID_UV=postID,userID_UV=userID,upvotes_UV = Upvotes)
-      
+
+  def Downvote_click(self, **event_args):
+    self.users = [
+      (user["email"], user) for user in app_tables.users.search()
+    ]
+    userID = anvil.server.call('getUUID',user['email'])
+    existing_upvote = app_tables.upvote_data.get(postID_UV=postIDG,userID_UV=userID)
+    existing_downvote = app_tables.downvote_data.get(postID_DV=postIDG,userID_DV=userID)
+
+    if not anvil.users.get_user():
+      alert("Must log in to downvote!")
+    elif existing_upvote:
+      print("Un-Upvoting")
+      self.uploads['Upvotes'] = self.uploads['Upvotes'] - 1
+      Upvotes = self.uploads['Upvotes']
+      self.Upvote.text = Upvotes
+      self.Upvote.background = ""
+      self.Upvote.bold = False
+      postID = postIDG
+      DelRow = app_tables.upvote_data.get(postID_UV=postID,userID_UV=userID)
+      DelRow.delete()
+
+      #Downvoting:
+      print("Downvoting...")
+      self.uploads['Downvotes'] = self.uploads['Downvotes'] + 1
+      Downvotes = self.uploads['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = "theme:Secondary Container"
+      self.Downvote.bold = True
+      postID = postIDG
+      app_tables.downvote_data.add_row(postID_DV=postID,userID_DV=userID,downvotes_DV=Downvotes)
+
+    elif existing_downvote:
+      print("Un-Downvoting")
+      self.uploads['Downvotes'] = self.uploads['Downvotes'] - 1
+      Downvotes = self.uploads['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = ""
+      self.Downvote.bold = False
+      postID = postIDG
+      DelRow = app_tables.downvote_data.get(postID_DV=postID,userID_DV=userID)
+      DelRow.delete()
+
+    else:
+      print("Downvoting...")
+      self.uploads['Downvotes'] = self.uploads['Downvotes'] + 1
+      Downvotes = self.uploads['Downvotes']
+      self.Downvote.text = Downvotes
+      self.Downvote.background = "theme:Secondary Container"
+      self.Downvote.bold = True
+      postID = postIDG
+      app_tables.downvote_data.add_row(postID_DV=postID,userID_DV=userID,downvotes_DV=Downvotes)
+
+  def comment_change(self, **event_args):
+    event_args[]
+
+
+
+
+    
+    

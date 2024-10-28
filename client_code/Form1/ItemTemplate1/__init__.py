@@ -41,7 +41,10 @@ class ItemTemplate1(ItemTemplate1Template):
     userID = anvil.server.call('getUUID',user['email'])
     existing_upvote = app_tables.upvote_data.get(postID_UV=self.item["postID"],userID_UV=userID)
     existing_downvote = app_tables.downvote_data.get(postID_DV=self.item["postID"],userID_DV=userID)
-    if existing_downvote:
+
+    if not anvil.users.get_user():
+      alert("Must log in to upvote!")
+    elif existing_downvote:
       print("Un-Downvoting")
       self.item['Downvotes'] = self.item['Downvotes'] - 1
       Downvotes = self.item['Downvotes']
@@ -91,7 +94,10 @@ class ItemTemplate1(ItemTemplate1Template):
     userID = anvil.server.call('getUUID',user['email'])
     existing_upvote = app_tables.upvote_data.get(postID_UV=self.item["postID"],userID_UV=userID)
     existing_downvote = app_tables.downvote_data.get(postID_DV=self.item["postID"],userID_DV=userID)
-    if existing_upvote:
+
+    if not anvil.users.get_user():
+      alert("Must log in to downvote!")
+    elif existing_upvote:
       print("Un-Upvoting")
       self.item['Upvotes'] = self.item['Upvotes'] - 1
       Upvotes = self.item['Upvotes']

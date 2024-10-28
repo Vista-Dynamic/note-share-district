@@ -40,7 +40,10 @@ components:
         name: Upvote
         properties: {icon: 'fa:arrow-circle-up', text: '---'}
         type: Button
-      - layout_properties: {}
+      - data_bindings:
+        - {code: 'self.item[''Downvotes'']', property: text, writeback: false}
+        event_bindings: {click: Downvote_click}
+        layout_properties: {}
         name: Downvote
         properties: {icon: 'fa:arrow-circle-down', text: '---'}
         type: Button
@@ -50,6 +53,7 @@ components:
       type: FlowPanel
     - data_bindings:
       - {code: 'self.item[''CommentText'']', property: text, writeback: true}
+      event_bindings: {change: comment_change}
       layout_properties: {grid_position: 'DLHAHR,TOQWAI'}
       name: comment
       properties: {auto_expand: true, height: 51.727264404296875}

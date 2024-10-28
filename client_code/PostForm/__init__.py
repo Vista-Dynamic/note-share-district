@@ -187,7 +187,7 @@ class PostForm(PostFormTemplate):
       app_tables.downvote_data.add_row(postID_DV=postID,userID_DV=userID,downvotes_DV=Downvotes)
 
   def comment_change(self, **event_args):
-    event_args[]
+    print()    
 
 
 

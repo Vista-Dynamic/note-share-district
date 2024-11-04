@@ -189,6 +189,34 @@ class PostForm(PostFormTemplate):
   def comment_change(self, **event_args):
     print()    
 
+  def comment_pressed_enter(self, **event_args):
+    if not anvil.users.get_user():
+      alert("Please log in!")
+    elif self.comment.text == "":
+      alert("No comment given")
+    else:
+      print(f"Commenting {self.comment.text}")
+      print("Commenting...")
+      #self.comment.text = self.comment.placeholder
+      content = self.comment.text
+      image = self.file_loader_1.file
+      #{"CommentText": self.comment.text}
+      print(content)
+      self.users = [
+      (user['email'], user) for user in app_tables.users.search()
+      ]
+      uuid = anvil.server.call('getUUID',user['email'])
+      print(postIDG)
+      print(self.tag)
+      print(self.label_1.text)
+      postID = postIDG
+      anvil.server.call("addComment",content,image,uuid,postID)
+      sleep(.8)
+      self.comment.text = ""
+      self.file_loader_1.clear()
+      self.refreshComments()
+
+
 
 
 

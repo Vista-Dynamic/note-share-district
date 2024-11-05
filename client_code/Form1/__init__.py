@@ -1,5 +1,6 @@
 import anvil.server
 from ..CreatePost import CreatePost
+from ..CreateChat import CreateChat
 from ._anvil_designer import Form1Template
 from anvil import *
 import anvil.google.auth, anvil.google.drive
@@ -90,6 +91,10 @@ class Form1(Form1Template):
     self.logOut.visible = False
     self.LogIn.visible = True
     self.refresh_data_bindings()
+
+  def button_5_click(self, **event_args):
+    anvil.alert(content=CreateChat(), title="Create Chat", large=True, buttons=[])
+    
 
 
 

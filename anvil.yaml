@@ -118,6 +118,10 @@ db_schema:
       type: datetime
     server: full
     title: Users
+dependencies:
+- dep_id: dep_krr5c2k9j7lr0o
+  resolution_hints: {app_id: YHLXNYJFOD7SH3GX, name: Clone of Clone of Slider Component, package_name: SliderDemo}
+  version: {branch: master}
 name: Info Share District
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
 package_name: Info_Share_District

@@ -9,6 +9,8 @@ import anvil.server
 from datetime import datetime
 import pybase64
 import uuid
+import random
+import string
 
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
@@ -56,3 +58,14 @@ def getComments(post_ID):
   #Testing!
 
   #Time Check?
+
+@anvil.server.callable
+def getChatID():
+  characters = string.ascii_letters + string.digits
+  random_code = ''.join(random.choices(characters, k=7))
+  return random_code
+
+@anvil.server.callable
+def chatData(name,max,save,username,id,user):
+  app_tables.chats.add_row(JoinCode=id,Save=save,Owner=user,OwnerUser=username,NameChat=name,Participants=max)
+  

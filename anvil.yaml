@@ -1,5 +1,29 @@
 allow_embedding: false
 db_schema:
+  chats:
+    client: none
+    columns:
+    - admin_ui: {order: 1, width: 200}
+      name: OwnerUser
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: Participants
+      type: number
+    - admin_ui: {order: 3, width: 200}
+      name: Save
+      type: bool
+    - admin_ui: {order: 4, width: 200}
+      name: JoinCode
+      type: string
+    - admin_ui: {order: -1, width: 200}
+      name: NameChat
+      type: string
+    - admin_ui: {order: -2, width: 200}
+      name: Owner
+      target: users
+      type: link_single
+    server: full
+    title: Chats
   comments:
     client: full
     columns:

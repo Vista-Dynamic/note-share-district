@@ -23,7 +23,7 @@ class Form1(Form1Template):
     ]
     
     Test = anvil.server.call("getActive")
-
+    print(Test)
     if anvil.users.get_user():
       self.LogIn.visible = False
       self.logOut.visible = True

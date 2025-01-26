@@ -1,0 +1,16 @@
+components:
+- components:
+  - layout_properties: {}
+    name: button_1
+    properties: {text: Enter Chat}
+    type: Button
+  - layout_properties: {}
+    name: label_1
+    properties: {bold: true, font_size: 16, text: name}
+    type: Label
+  layout_properties: {grid_position: 'UOOPKD,YIAXHF'}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+container: {type: ColumnPanel}
+is_package: true

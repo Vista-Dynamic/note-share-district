@@ -1,88 +1,115 @@
 components:
-- layout_properties: {grid_position: 'BCLWTV,HMKTDE'}
-  name: label_1
-  properties: {bold: true, font_size: 24, text: 'Create Chat:'}
-  type: Label
-- layout_properties: {grid_position: 'WVQYMV,KCSOUR'}
-  name: spacer_1
-  properties: {height: 34.80000305175781}
-  type: Spacer
 - components:
   - layout_properties: {}
-    name: label_2
-    properties: {align: center, bold: true, font_size: 18, text: 'Name Chat:'}
-    type: Label
-  - layout_properties: {expand: false, width: 628.4000244140625}
-    name: chat_name
+    name: button_3
     properties:
-      font_size: 18
-      margin: [null, null, 7, null]
-      placeholder: chat_name
-      spacing_above: small
-      spacing_below: small
-    type: TextBox
-  layout_properties: {grid_position: 'FRJLPD,TTLXGK'}
-  name: flow_panel_1
-  properties: {}
-  type: FlowPanel
-- components:
-  - layout_properties: {}
-    name: label_3
-    properties: {bold: true, font_size: 18, text: 'Max Participants:'}
-    type: Label
-  - layout_properties: {width: 111.19999999999999}
-    name: max
-    properties: {font_size: 18, placeholder: 2-100}
-    type: TextBox
-  layout_properties: {grid_position: 'SSHPWI,PSGEPO'}
-  name: flow_panel_2
-  properties: {}
-  type: FlowPanel
-- layout_properties: {grid_position: 'UWFHJV,DCLSMQ'}
-  name: save
-  properties: {align: left, bold: true, font_size: 20, text: Save Chat}
-  type: CheckBox
-- layout_properties: {grid_position: 'UWTBHS,PIZVQF'}
-  name: spacer_2
-  properties: {height: 39}
-  type: Spacer
-- components:
-  - layout_properties: {}
-    name: label_4
-    properties: {bold: true, font_size: 18, text: 'Chat Username:'}
-    type: Label
-  - layout_properties: {width: 586.6}
-    name: username_a
-    properties: {font_size: 18, placeholder: username}
-    type: TextBox
-  layout_properties: {grid_position: 'BIKJOC,VKCJXF'}
-  name: flow_panel_3
-  properties: {}
-  type: FlowPanel
-- components:
-  - layout_properties: {}
-    name: label_5
-    properties: {align: center, bold: true, font_size: 20, text: 'JOIN CODE:'}
-    type: Label
-  - layout_properties: {}
-    name: code_chat
-    properties: {align: center, bold: true, font_size: 20, text: '-----'}
-    type: Label
-  - layout_properties: {}
-    name: button_1
-    properties: {font_size: 20, icon: 'fa:copy', icon_align: top, text: ''}
+      font_size: 24
+      spacing:
+        margin: [null, null, null, 20]
+      text: Create Chat
     type: Button
-  layout_properties: {grid_position: 'LRFOLX,YVERAW'}
-  name: flow_panel_4
-  properties: {align: center}
+  - layout_properties: {}
+    name: button_4
+    properties: {font_size: 24, text: Join Chat}
+    type: Button
+  layout_properties: {grid_position: 'NUXGFJ,YDAUNR'}
+  name: flow_panel_5
+  properties: {}
   type: FlowPanel
-- data_bindings: []
-  event_bindings: {click: button_2_click}
-  layout_properties: {grid_position: 'UOCYNC,QFFDXX'}
-  name: button_2
-  properties: {background: 'theme:On Primary', bold: true, font_size: 23, text: CREATE CHAT}
-  type: Button
+- components:
+  - layout_properties: {grid_position: 'PRRHLJ,ZLQWZX'}
+    name: repeating_panel_1
+    properties: {item_template: CreateChat.ItemTemplate3}
+    type: RepeatingPanel
+  layout_properties: {grid_position: 'BNFWZM,RIJPYR'}
+  name: column_panel_2
+  properties: {visible: true}
+  type: ColumnPanel
+- components:
+  - layout_properties: {grid_position: 'ZFOGLC,ADCDXE'}
+    name: spacer_1
+    properties: {height: 34.80000305175781}
+    type: Spacer
+  - components:
+    - layout_properties: {}
+      name: label_2
+      properties: {align: center, bold: true, font_size: 18, text: 'Name Chat:'}
+      type: Label
+    - layout_properties: {expand: false, width: 628.4000244140625}
+      name: chat_name
+      properties:
+        font_size: 18
+        margin: [null, null, 7, null]
+        placeholder: chat_name
+        spacing_above: small
+        spacing_below: small
+      type: TextBox
+    layout_properties: {grid_position: 'OVMLSE,NEHXHI'}
+    name: flow_panel_1
+    properties: {}
+    type: FlowPanel
+  - components:
+    - layout_properties: {}
+      name: label_3
+      properties: {bold: true, font_size: 18, text: 'Max Participants:'}
+      type: Label
+    - layout_properties: {width: 111.19999999999999}
+      name: max
+      properties: {font_size: 18, placeholder: 2-100}
+      type: TextBox
+    layout_properties: {grid_position: 'XDYDGW,EFDYPH'}
+    name: flow_panel_2
+    properties: {}
+    type: FlowPanel
+  - layout_properties: {grid_position: 'PHRBYK,SDYXGO'}
+    name: save
+    properties: {align: left, bold: true, font_size: 20, text: Save Chat}
+    type: CheckBox
+  - layout_properties: {grid_position: 'UXZNDI,SNRMOM'}
+    name: spacer_2
+    properties: {height: 39}
+    type: Spacer
+  - components:
+    - layout_properties: {}
+      name: label_4
+      properties: {bold: true, font_size: 18, text: 'Chat Username:'}
+      type: Label
+    - layout_properties: {width: 586.6}
+      name: username_a
+      properties: {font_size: 18, placeholder: username}
+      type: TextBox
+    layout_properties: {grid_position: 'SKINSV,WBHLGQ'}
+    name: flow_panel_3
+    properties: {}
+    type: FlowPanel
+  - components:
+    - layout_properties: {}
+      name: label_5
+      properties: {align: center, bold: true, font_size: 20, text: 'JOIN CODE:'}
+      type: Label
+    - layout_properties: {}
+      name: code_chat
+      properties: {align: center, bold: true, font_size: 20, text: '-----'}
+      type: Label
+    - layout_properties: {}
+      name: button_1
+      properties: {font_size: 20, icon: 'fa:copy', icon_align: top, text: ''}
+      type: Button
+    layout_properties: {grid_position: 'JPWBNH,PKBVHZ'}
+    name: flow_panel_4
+    properties: {align: center}
+    type: FlowPanel
+  - data_bindings: []
+    event_bindings: {click: button_2_click}
+    layout_properties: {grid_position: 'JCHVFW,OEBXGG'}
+    name: button_2
+    properties: {background: 'theme:On Primary', bold: true, font_size: 23, text: CREATE CHAT, visible: true}
+    type: Button
+  layout_properties: {grid_position: 'PKRSOS,ONENRR'}
+  name: column_panel_1
+  properties: {visible: true}
+  type: ColumnPanel
 container:
-  properties: {col_widths: '{"TTLXGK":50}'}
+  properties: {col_widths: '{}'}
   type: ColumnPanel
 is_package: true
